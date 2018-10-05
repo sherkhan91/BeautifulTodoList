@@ -4,15 +4,133 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
 
-    <TextView
-        android:layout_width="wrap_content"
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    </ListView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_width="wrap_content"
+        app:fabSize="normal"
+        android:scaleType="matrix"
+        android:src="@drawable/blue_big"
+        android:elevation="6dp"
+        app:maxImageSize="67dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        />
+
+
+    <!--<EditText-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/edtemployeename"-->
+        <!--android:text="Search.."-->
+        <!--android:layout_alignRight="@id/btnupdate"-->
+        <!--android:layout_alignEnd="@id/btnupdate"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:background="@android:color/transparent"-->
+        <!--/>-->
+
+    <!--<EditText-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/editText"-->
+        <!--android:text="Employee Name"-->
+        <!--android:layout_below="@id/edtemployeename"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--/>-->
+
+    <!--<EditText-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/editText2"-->
+        <!--android:layout_below="@id/editText"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_alignRight="@id/editText"-->
+        <!--android:layout_alignEnd="@id/editText"-->
+        <!--android:text="Employee MailId"-->
+        <!--/>-->
+
+    <!--<EditText-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/editText3"-->
+        <!--android:layout_below="@id/editText2"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_alignRight="@id/editText2"-->
+        <!--android:layout_alignEnd="@id/editText2"-->
+        <!--android:text="Employee Salary"-->
+        <!--/>-->
+
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Save"-->
+        <!--android:id="@+id/btnsave"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--/>-->
+
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Update"-->
+        <!--android:id="@+id/btnupdate"-->
+        <!--android:layout_alignTop="@+id/btnsave"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--/>-->
+
+
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Delete"-->
+        <!--android:id="@+id/btndel"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--/>-->
+
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Search All Record"-->
+        <!--android:id="@+id/btnselect"-->
+        <!--android:layout_alignTop="@id/btnselectperticular"-->
+        <!--android:layout_alignStart="@id/btndel"-->
+        <!--android:layout_alignLeft="@id/btndel"-->
+        <!--/>-->
+
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Search"-->
+        <!--android:id="@+id/btnselectperticular"-->
+        <!--android:layout_below="@id/btnsave"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_marginTop="53dp"-->
+        <!--/>-->
+
+
 
 </android.support.constraint.ConstraintLayout>
