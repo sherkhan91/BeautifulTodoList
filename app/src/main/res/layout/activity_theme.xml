@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ThemeActivity"
+    android:weightSum="5"
+    android:orientation="vertical"
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Please select theme of your choice."
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="5"
+        >
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Green Theme"
+            android:layout_gravity="center"
+            android:layout_weight="1.5"
+            android:textColor="@color/colorPrimary2"
+            android:id="@+id/greenColorTheme"
+            />
+
+
+        <ImageView
+            android:layout_weight="3.5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@color/colorPrimary2"
+            android:paddingBottom="35dp"
+            android:paddingTop="35dp"
+            android:paddingRight="20dp"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="5"
+        >
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Yellow Theme"
+            android:layout_gravity="center"
+            android:layout_weight="1.5"
+            android:textColor="@color/goldenYellow"
+            android:id="@+id/goldenYellowColorTheme"
+            />
+
+
+        <ImageView
+            android:layout_weight="3.5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@color/goldenYellow"
+            android:paddingBottom="35dp"
+            android:paddingTop="35dp"
+            android:paddingRight="20dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="5"
+        >
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Dark brown Theme"
+            android:layout_gravity="center"
+            android:layout_weight="1.5"
+            android:textColor="@color/goldenBrown"
+            android:id="@+id/goldenBrownColorTheme"
+            />
+
+
+        <ImageView
+            android:layout_weight="3.5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@color/goldenBrown"
+            android:paddingBottom="35dp"
+            android:paddingTop="35dp"
+            android:paddingRight="20dp"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="5"
+        >
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Default Theme"
+            android:layout_gravity="center"
+            android:layout_weight="1.5"
+            android:textColor="@color/colorRoyalBlue"
+            android:id="@+id/royalBlueColorTheme"
+            />
+
+
+        <ImageView
+            android:layout_weight="3.5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@color/colorRoyalBlue"
+            android:paddingBottom="35dp"
+            android:paddingTop="35dp"
+            android:paddingRight="20dp"
+            />
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

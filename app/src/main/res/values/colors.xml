@@ -3,5 +3,16 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="colorPrimaryDark2">#32CD32</color>
+    <color name="colorAccent2">#FF4081</color>
+    <color name="colorOrange2">#FF8C00</color>
+
+
+
+    <color name="colorPrimary2">#008000</color>
     <color name="colorRoyalBlue">#4169e1</color>
+    <color name="goldenYellow">#FFBF00</color>
+    <color name="goldenBrown">#996515</color>
+
 </resources>

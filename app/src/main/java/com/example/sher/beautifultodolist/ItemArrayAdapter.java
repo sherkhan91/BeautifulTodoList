@@ -38,7 +38,6 @@ public class ItemArrayAdapter extends ArrayAdapter<String> {
         // Populate the data into the template view using the data object
         String stringDetails = arrayList.get(position);
         char done = stringDetails.charAt(stringDetails.length()-1);
-        Log.d("checl char",String.valueOf(done));
         if(done=='1'){
            // stringDetails = stringDetails.replace('1',' ');
             rowItem.setText(stringDetails);
