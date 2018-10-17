@@ -19,6 +19,16 @@
 
     </group>
 
+    <group android:id="@+id/groupmiddle" android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/jokeitem"
+            android:title="Getting Bored ?"
+            android:icon="@drawable/ic_tag_faces_black_24dp"
+            />
+
+    </group>
+
     <group android:id="@+id/group2" android:checkableBehavior="single">
 
         <item

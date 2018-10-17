@@ -118,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listView);
         adapter = new ItemArrayAdapter(this,R.layout.list_item,listItems);
         listView.setAdapter(adapter);
+        changeListBackground();
         showItems();
 
 //        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
@@ -161,6 +162,21 @@ public class MainActivity extends AppCompatActivity {
     } // End of OnCreate
 
 
+
+    public void changeListBackground(){
+
+        SharedPreferences sharedPreferences =  PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+        String imageName =  sharedPreferences.getString("Image","");
+
+        if(imageName.equalsIgnoreCase("image1")) {
+            listView.setBackground(getResources().getDrawable(R.drawable.image1));
+        }else if(imageName.equalsIgnoreCase("image2")){
+            listView.setBackground(getResources().getDrawable(R.drawable.image2));
+        }else if(imageName.equalsIgnoreCase("image3")){
+            listView.setBackground(getResources().getDrawable(R.drawable.image3));
+        }
+    }
+
     public void changeThemeStart(){
 
         if(themeString.equalsIgnoreCase("Green Theme"))
@@ -179,12 +195,14 @@ public class MainActivity extends AppCompatActivity {
             navigationView.getMenu().findItem(R.id.theme).setCheckable(false).setChecked(true);
             navigationView.getMenu().findItem(R.id.changeBackground).setCheckable(false).setChecked(true);
             navigationView.getMenu().findItem(R.id.help).setCheckable(false).setChecked(true);
+            navigationView.getMenu().findItem(R.id.jokeitem).setCheckable(false).setChecked(true);
             header.setBackground(getResources().getDrawable(R.color.colorPrimary2));
 
         } else if(themeString.equalsIgnoreCase("Yellow Theme")){
             navigationView.getMenu().findItem(R.id.theme).setCheckable(false).setChecked(true);
             navigationView.getMenu().findItem(R.id.changeBackground).setCheckable(false).setChecked(true);
             navigationView.getMenu().findItem(R.id.help).setCheckable(false).setChecked(true);
+            navigationView.getMenu().findItem(R.id.jokeitem).setCheckable(false).setChecked(true);
             header.setBackground(getResources().getDrawable(R.color.goldenYellow));
 
         }
@@ -192,13 +210,16 @@ public class MainActivity extends AppCompatActivity {
             navigationView.getMenu().findItem(R.id.theme).setCheckable(false).setChecked(true);
             navigationView.getMenu().findItem(R.id.changeBackground).setCheckable(false).setChecked(true);
             navigationView.getMenu().findItem(R.id.help).setCheckable(false).setChecked(true);
+            navigationView.getMenu().findItem(R.id.jokeitem).setCheckable(false).setChecked(true);
             header.setBackground(getResources().getDrawable(R.color.goldenBrown));
 
         } else{
             navigationView.getMenu().findItem(R.id.theme).setCheckable(false).setChecked(true);
             navigationView.getMenu().findItem(R.id.changeBackground).setCheckable(false).setChecked(true);
             navigationView.getMenu().findItem(R.id.help).setCheckable(false).setChecked(true);
+            navigationView.getMenu().findItem(R.id.jokeitem).setCheckable(false).setChecked(true);
             header.setBackground(getResources().getDrawable(R.color.colorRoyalBlue));
+
 
         }
 
@@ -334,7 +355,7 @@ public class MainActivity extends AppCompatActivity {
                 Uri contentURI = data.getData();
                 try{
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(),contentURI);
-                    String path = saveImage(bitmap);
+                   // String path = saveImage(bitmap);
                     Toast.makeText(MainActivity.this, "Image Saved!", Toast.LENGTH_SHORT).show();
                     cameraImage.setImageBitmap(bitmap);
                     SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
@@ -350,14 +371,14 @@ public class MainActivity extends AppCompatActivity {
         } else if(requestCode==CAMERA){
             Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
             cameraImage.setImageBitmap(thumbnail);
-            saveImage(thumbnail);
+            //saveImage(thumbnail);
             SharedPreferences sharedPreferences =  PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("profileImage",bitmapToString(thumbnail));
             editor.apply();
             editor.commit();
 
-            Toast.makeText(MainActivity.this, "Image Saved!", Toast.LENGTH_SHORT).show();
+           // Toast.makeText(MainActivity.this, "Image Saved!", Toast.LENGTH_SHORT).show();
 
         }
     }
@@ -427,7 +448,18 @@ public class MainActivity extends AppCompatActivity {
 //                        PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().putString("Theme","green").apply();
                         Intent intent = new Intent(MainActivity.this,ThemeActivity.class);
                         startActivity(intent);
+                        return true;
+
                         //finish();
+                    case R.id.changeBackground:
+                        msg("Changing background");
+                        startActivity(new Intent(MainActivity.this,ChangeBackgroundActivity.class));
+                        return true;
+                    case R.id.jokeitem:
+                        msg("Ready for some jokes");
+                        startActivity(new Intent(MainActivity.this, JokeActivity.class));
+                        return true;
+
 
                     default:
                         return true;
