@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChangeBackgroundActivity"
+    tools:context=".Screens.ChangeBackgroundActivity"
     android:weightSum="5"
     android:orientation="vertical"
     >
@@ -171,11 +171,11 @@
             />
 
         <ImageView
-            android:id="@+id/image10"
+            android:id="@+id/whiteimage_default"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:src="@drawable/image10"
+            android:src="@drawable/imagewhite_default"
             android:scaleType="fitXY"
             android:paddingLeft="5dp"
             android:paddingRight="10dp"

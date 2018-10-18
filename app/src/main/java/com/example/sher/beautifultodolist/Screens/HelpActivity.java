@@ -1,16 +1,30 @@
-package com.example.sher.beautifultodolist;
+package com.example.sher.beautifultodolist.Screens;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TextView;
 
-public class JokeActivity extends AppCompatActivity {
+import com.example.sher.beautifultodolist.R;
+
+public class HelpActivity extends AppCompatActivity {
+    String themeString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        String themeString = preferences.getString("Theme","");
+        themeString = preferences.getString("Theme","");
+        changeThemeStart();
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_help);
+
+
+        TextView link = (TextView) findViewById(R.id.linkedIn);
+
+    }
+    public void changeThemeStart(){
+
         if(themeString.equalsIgnoreCase("Green Theme"))
             setTheme(R.style.green);
         else if(themeString.equalsIgnoreCase("Yellow Theme"))
@@ -19,8 +33,5 @@ public class JokeActivity extends AppCompatActivity {
             setTheme(R.style.darkbrown);
         else
             setTheme(R.style.AppTheme);
-
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_joke);
     }
 }

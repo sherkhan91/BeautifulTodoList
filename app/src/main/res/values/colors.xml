@@ -14,5 +14,6 @@
     <color name="colorRoyalBlue">#4169e1</color>
     <color name="goldenYellow">#FFBF00</color>
     <color name="goldenBrown">#996515</color>
+    <color name="white">#FFFFFF</color>
 
 </resources>

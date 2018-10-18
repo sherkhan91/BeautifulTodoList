@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".JokeActivity">
+    tools:context=".Screens.JokeActivity">
 
     <TextView
         android:id="@+id/title"
@@ -29,7 +29,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         >
 
 
@@ -37,7 +37,7 @@
             android:id="@+id/actualjoke"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Actual Joke"
+            android:text="Please wai Fetching joke for you..."
             android:textStyle="normal"
             android:textSize="20sp"
             android:gravity="center"

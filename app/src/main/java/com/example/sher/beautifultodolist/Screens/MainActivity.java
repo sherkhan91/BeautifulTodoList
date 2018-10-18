@@ -1,28 +1,20 @@
-package com.example.sher.beautifultodolist;
+package com.example.sher.beautifultodolist.Screens;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.Icon;
-import android.hardware.Camera;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Environment;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.v4.content.res.ResourcesCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v4.graphics.drawable.IconCompat;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
@@ -31,12 +23,7 @@ import android.os.Bundle;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.text.Spannable;
-import android.text.SpannableString;
 import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.RelativeSizeSpan;
-import android.text.style.StyleSpan;
 import android.util.Base64;
 import android.util.Log;
 import android.view.Gravity;
@@ -44,16 +31,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.view.ContextMenu;
+
+import com.example.sher.beautifultodolist.Screens.ListAdapters.ItemArrayAdapter;
+import com.example.sher.beautifultodolist.R;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -88,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton fab;
     View headerView;
     LinearLayout header;
+    ConstraintLayout listViewParent;
 
 
     @Override
@@ -109,6 +97,9 @@ public class MainActivity extends AppCompatActivity {
 
         navigationView = (NavigationView) findViewById(R.id.nav);
         navigationItemClicks();
+
+        listViewParent = (ConstraintLayout) findViewById(R.id.listViewParent);
+
 
 
         db = openOrCreateDatabase("todolist",Context.MODE_PRIVATE,null);
@@ -139,7 +130,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
         cameraImage = (CircleImageView) headerView.findViewById(R.id.profileImage);
         showPicture();
         cameraImage.setOnClickListener(new View.OnClickListener() {
@@ -148,8 +138,6 @@ public class MainActivity extends AppCompatActivity {
                 showPictureDialog();
             }
         });
-
-
 
 
 
@@ -169,11 +157,25 @@ public class MainActivity extends AppCompatActivity {
         String imageName =  sharedPreferences.getString("Image","");
 
         if(imageName.equalsIgnoreCase("image1")) {
-            listView.setBackground(getResources().getDrawable(R.drawable.image1));
+            listViewParent.setBackground(getResources().getDrawable(R.drawable.image1));
         }else if(imageName.equalsIgnoreCase("image2")){
-            listView.setBackground(getResources().getDrawable(R.drawable.image2));
+            listViewParent.setBackground(getResources().getDrawable(R.drawable.image2));
         }else if(imageName.equalsIgnoreCase("image3")){
-            listView.setBackground(getResources().getDrawable(R.drawable.image3));
+            listViewParent.setBackground(getResources().getDrawable(R.drawable.image3));
+        } else if(imageName.equalsIgnoreCase("image4")){
+            listViewParent.setBackground(getResources().getDrawable(R.drawable.image4));
+        }else if(imageName.equalsIgnoreCase("image5")){
+            listViewParent.setBackground(getResources().getDrawable(R.drawable.image5));
+        }else if(imageName.equalsIgnoreCase("image6")){
+            listViewParent.setBackground(getResources().getDrawable(R.drawable.image6));
+        }else if(imageName.equalsIgnoreCase("image7")){
+            listViewParent.setBackground(getResources().getDrawable(R.drawable.image7));
+        }else if(imageName.equalsIgnoreCase("image8")){
+            listViewParent.setBackground(getResources().getDrawable(R.drawable.image8));
+        }else if(imageName.equalsIgnoreCase("image9")){
+            listViewParent.setBackground(getResources().getDrawable(R.drawable.image9));
+        }else if(imageName.equalsIgnoreCase("imagewhite_default")){
+            listViewParent.setBackground(getResources().getDrawable(R.drawable.imagewhite_default));
         }
     }
 
@@ -438,34 +440,53 @@ public class MainActivity extends AppCompatActivity {
     // This function handle the navigation drawer clicks
     public void navigationItemClicks() {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+            public boolean onNavigationItemSelected(final MenuItem menuItem) {
 
-                int id = menuItem.getItemId();
-                switch (id) {
-                    case R.id.theme:
-                        msg("Theme button clicked");
+                new Handler().postDelayed(new Runnable(){
+                   @Override
+                   public void run(){
+                       switch (menuItem.getItemId()) {
+                           case R.id.theme:
+                               msg("Change Theme Menu");
 //                        PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().putString("Theme","green").apply();
-                        Intent intent = new Intent(MainActivity.this,ThemeActivity.class);
-                        startActivity(intent);
-                        return true;
+                               Intent intent = new Intent(MainActivity.this,ThemeActivity.class);
+                               startActivity(intent);
+                               break;
 
-                        //finish();
-                    case R.id.changeBackground:
-                        msg("Changing background");
-                        startActivity(new Intent(MainActivity.this,ChangeBackgroundActivity.class));
-                        return true;
-                    case R.id.jokeitem:
-                        msg("Ready for some jokes");
-                        startActivity(new Intent(MainActivity.this, JokeActivity.class));
-                        return true;
+                           //finish();
+                           case R.id.changeBackground:
+                               msg("Change Background Menu");
+                               startActivity(new Intent(MainActivity.this,ChangeBackgroundActivity.class));
+                               break;
+                           case R.id.jokeitem:
+                               msg("Ready for some jokes");
+                               startActivity(new Intent(MainActivity.this, JokeActivity.class));
+                               break;
+                           case R.id.help:
+                               msg("Help Menu");
+                               startActivity(new Intent(MainActivity.this, HelpActivity.class));
+                               break;
+                           default:
+                               break;
+                       }
+                   }
+                },200);
 
+                drawerLayout.closeDrawer(GravityCompat.START);
 
-                    default:
-                        return true;
-                }
-
+                return true;
             }
+
+
+
+
+
+
+
+
+
         });
     }
 

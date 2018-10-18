@@ -7,6 +7,8 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -17,7 +19,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Screens.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,13 +27,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ThemeActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name=".Screens.ThemeActivity"
+            android:parentActivityName=".Screens.MainActivity" />
         <activity
-            android:name=".ChangeBackgroundActivity"
-            android:parentActivityName=".MainActivity"></activity>
-        <activity android:name=".JokeActivity"
-            android:parentActivityName=".MainActivity"
+            android:name=".Screens.ChangeBackgroundActivity"
+            android:parentActivityName=".Screens.MainActivity" />
+        <activity
+            android:name=".Screens.JokeActivity"
+            android:parentActivityName=".Screens.MainActivity"></activity>
+        <activity android:name=".Screens.HelpActivity"
+            android:parentActivityName=".Screens.MainActivity"
             >
 
         </activity>
