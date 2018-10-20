@@ -1,4 +1,4 @@
-package com.example.sher.beautifultodolist.Screens;
+package com.beautiful.sher.beautifultodolist.Screens;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,7 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 
-import com.example.sher.beautifultodolist.R;
+import com.beautiful.sher.beautifultodolist.R;
 
 public class ThemeActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.sher.beautifultodolist.Screens.ListAdapters;
+package com.beautiful.sher.beautifultodolist.Screens.ListAdapters;
 
 import android.app.Activity;
 import android.content.Context;
@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.example.sher.beautifultodolist.R;
+import com.beautiful.sher.beautifultodolist.R;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -76,11 +76,11 @@ public class ItemArrayAdapter extends ArrayAdapter<String> {
         String stringDetails = arrayList.get(position);
         char done = stringDetails.charAt(stringDetails.length()-1);
         if(done=='1'){
-           // stringDetails = stringDetails.replace('1',' ');
+            stringDetails = stringDetails.replace('1',' ');
             rowItem.setText(stringDetails);
             rowItem.setPaintFlags(rowItem.getPaintFlags()| Paint.STRIKE_THRU_TEXT_FLAG);
         }else {
-           // stringDetails = stringDetails.replace('0',' ');
+            stringDetails = stringDetails.replace('0',' ');
             rowItem.setText(stringDetails);
         }
         //rowItem.setText(stringDetails);

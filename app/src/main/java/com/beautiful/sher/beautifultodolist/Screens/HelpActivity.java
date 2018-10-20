@@ -1,4 +1,4 @@
-package com.example.sher.beautifultodolist.Screens;
+package com.beautiful.sher.beautifultodolist.Screens;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.example.sher.beautifultodolist.R;
+import com.beautiful.sher.beautifultodolist.R;
 
 public class HelpActivity extends AppCompatActivity {
     String themeString;

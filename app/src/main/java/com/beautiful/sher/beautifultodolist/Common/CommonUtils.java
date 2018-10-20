@@ -1,4 +1,4 @@
-package com.example.sher.beautifultodolist.Common;
+package com.beautiful.sher.beautifultodolist.Common;
 
 import android.app.Activity;
 import android.content.Context;

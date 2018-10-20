@@ -1,4 +1,4 @@
-package com.example.sher.beautifultodolist.Updater;
+package com.beautiful.sher.beautifultodolist.Updater;
 
 import android.os.AsyncTask;
 import android.util.Log;
@@ -14,7 +14,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import android.app.Activity;
 
-import com.example.sher.beautifultodolist.R;
+import com.beautiful.sher.beautifultodolist.R;
 
 public class FetchJoke {
     private static String jokeURL = "https://api.chucknorris.io/jokes/random";

@@ -1,4 +1,4 @@
-package com.example.sher.beautifultodolist.Screens;
+package com.beautiful.sher.beautifultodolist.Screens;
 
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
@@ -10,9 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.sher.beautifultodolist.Common.CommonUtils;
-import com.example.sher.beautifultodolist.Updater.FetchJoke;
-import com.example.sher.beautifultodolist.R;
+import com.beautiful.sher.beautifultodolist.Common.CommonUtils;
+import com.beautiful.sher.beautifultodolist.Updater.FetchJoke;
+import com.beautiful.sher.beautifultodolist.R;
 
 public class JokeActivity extends AppCompatActivity {
 

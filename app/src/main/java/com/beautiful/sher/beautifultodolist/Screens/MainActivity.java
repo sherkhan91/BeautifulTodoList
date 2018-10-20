@@ -1,10 +1,11 @@
-package com.example.sher.beautifultodolist.Screens;
+package com.beautiful.sher.beautifultodolist.Screens;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Environment;
@@ -39,8 +40,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 import android.view.ContextMenu;
 
-import com.example.sher.beautifultodolist.Screens.ListAdapters.ItemArrayAdapter;
-import com.example.sher.beautifultodolist.R;
+import com.beautiful.sher.beautifultodolist.Screens.ListAdapters.ItemArrayAdapter;
+import com.beautiful.sher.beautifultodolist.R;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -131,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         cameraImage = (CircleImageView) headerView.findViewById(R.id.profileImage);
+       // cameraImage.setImageDrawable(getResources().getDrawable(R.drawable.ic_android_black_24dp));
         showPicture();
         cameraImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -221,6 +223,7 @@ public class MainActivity extends AppCompatActivity {
             navigationView.getMenu().findItem(R.id.help).setCheckable(false).setChecked(true);
             navigationView.getMenu().findItem(R.id.jokeitem).setCheckable(false).setChecked(true);
             header.setBackground(getResources().getDrawable(R.color.colorRoyalBlue));
+
 
 
         }
@@ -339,8 +342,12 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void showPicture(){
+        Bitmap resizedProfileBitmap;
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        String profileBitmapString = sharedPreferences.getString("profileImage"," ");
+        Bitmap profileBitmap = BitmapFactory.decodeResource(getResources(),R.drawable.default_profile);
+        resizedProfileBitmap = Bitmap.createScaledBitmap(profileBitmap,300,300,false);
+        String profileDefault = bitmapToString(resizedProfileBitmap);
+        String profileBitmapString = sharedPreferences.getString("profileImage",profileDefault);
         Bitmap profilePicBitmap = stringToBitmap(profileBitmapString);
         cameraImage.setImageBitmap(profilePicBitmap);
 
@@ -359,10 +366,10 @@ public class MainActivity extends AppCompatActivity {
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(),contentURI);
                    // String path = saveImage(bitmap);
                     Toast.makeText(MainActivity.this, "Image Saved!", Toast.LENGTH_SHORT).show();
-                    cameraImage.setImageBitmap(bitmap);
+                    cameraImage.setImageBitmap(changeSize(bitmap));
                     SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("profileImage",bitmapToString(bitmap));
+                    editor.putString("profileImage",bitmapToString(changeSize(bitmap)));
                     editor.apply();
                     editor.commit();
 
@@ -371,12 +378,13 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } else if(requestCode==CAMERA){
+
             Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
-            cameraImage.setImageBitmap(thumbnail);
+            cameraImage.setImageBitmap(changeSize(thumbnail));
             //saveImage(thumbnail);
             SharedPreferences sharedPreferences =  PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
             SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString("profileImage",bitmapToString(thumbnail));
+            editor.putString("profileImage",bitmapToString(changeSize(thumbnail)));
             editor.apply();
             editor.commit();
 
@@ -639,6 +647,19 @@ public class MainActivity extends AppCompatActivity {
         Toast toast = Toast.makeText(this, string, Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER,0,0);
         toast.show();
+    }
+
+
+    public Bitmap changeSize(Bitmap bitmap){
+        int maxHeight =500;
+        int maxWidht  = 500;
+
+        float scale = Math.min(((float)maxHeight/bitmap.getWidth()),(((float)maxWidht)/bitmap.getHeight()));
+        Matrix matrix = new Matrix();
+        matrix.postScale(scale,scale);
+        bitmap = Bitmap.createBitmap(bitmap,0,0,bitmap.getWidth(),bitmap.getHeight(),matrix,true);
+
+        return bitmap;
     }
 
 }  // End of Class here..
